@@ -1,4 +1,4 @@
-package grammar
+package variable
 
 // switch/case语句
 def swicthCase(x) {
