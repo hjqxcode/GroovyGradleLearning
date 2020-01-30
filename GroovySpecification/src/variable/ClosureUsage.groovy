@@ -1,5 +1,7 @@
 package variable
-
+/*
+ * 与基本数据类型结合使用
+ */
 int factorial(int num) {
     int result = 1
     1.upto(num, {number -> result *= number})
@@ -34,3 +36,40 @@ println factorial(10) // --> 3628800
     }
 }*/
 
+/*
+ * 与String结合使用
+ */
+def str = "Closure usage with String"
+
+/*while(self.hasNext()) {
+    Object arg = self.next();
+    closure.call(arg);
+}
+return self;*/
+// each函数见上，可见参数是单个字符，返回的也是单词本身
+str.each {String item -> print item.toUpperCase()} // -->CLOSURE USAGE WITH STRING
+
+String strWithNumber = 'We have 8 days 9 hours left'
+println strWithNumber.find { String item ->
+    item.isNumber()
+}
+
+def list = strWithNumber.findAll { String item ->
+    item.isNumber()
+}
+println list.toListString(); // -->[8, 9]
+
+def anyResult = strWithNumber.any {
+    String item -> item.isNumber()
+}
+println anyResult // -->true
+
+def everyResult = strWithNumber.every {
+    String item -> item.isNumber()
+}
+println everyResult // -->false
+
+def collectResult = strWithNumber.collect {
+    it.toUpperCase()
+}
+println collectResult // -->[W, E,  , H, A, V, E,  , 8,  , D, A, Y, S,  , 9,  , H, O, U, R, S,  , L, E, F, T]
