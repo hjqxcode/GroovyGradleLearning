@@ -47,11 +47,12 @@ def str = "Closure usage with String"
 }
 return self;*/
 // each函数见上，可见参数是单个字符，返回的也是单词本身
-str.each {String item -> print item.toUpperCase()} // -->CLOSURE USAGE WITH STRING
+str.each {String item -> print item.toUpperCase()} // --> CLOSURE USAGE WITH STRING
+print '\n'
 
 String strWithNumber = 'We have 8 days 9 hours left'
-println strWithNumber.find { String item ->
-    item.isNumber()
+println strWithNumber.find { element ->     // --> 8
+    element.isNumber()
 }
 
 def list = strWithNumber.findAll { String item ->
